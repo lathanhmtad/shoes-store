@@ -1,0 +1,42 @@
+.navbar .nav-item:hover .nav-link {
+	background-color: white;
+	color: #303f9f;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.navbar .nav-item .nav-link {
+	color: white;
+}
+
+.bg-custom {
+	background-color: #303f9f;
+}
+	
+.card {
+	transition: .3s;
+}
+	
+.card-ho:hover {
+	background-color: #fcf7f7;
+}
+
+.back-img {
+	    background: url('../images/banner.png') center/cover no-repeat;
+	    padding-top: 56%;
+	    width: 100%;
+	    position: relative;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.card-hover {
+	transition: .3s;
+}
+
+.card-hover:hover {
+	background-color: #fcf7f7;
+}
