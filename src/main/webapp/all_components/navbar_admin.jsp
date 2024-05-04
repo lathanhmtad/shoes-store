@@ -6,11 +6,11 @@
 <div class="container-fluid bg-body-tertiary p-3">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
+			<a href="trang-chu" class="col-md-3">
 				<h3 class="text-success"><i class="fa-solid fa-shop"></i> ShoesStore</h3>
-			</div>
+			</a>
 			<div class="offset-md-6 col-md-3 text-end">
-				<a href="#" class="btn btn-success">
+				<a href="dang-xuat" class="btn btn-success">
 					<i class="fa-solid fa-right-to-bracket"></i>
 					Đăng xuất</a>
 			</div>

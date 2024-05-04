@@ -107,17 +107,34 @@
 			</div>
 		</div>
 
-<script>
-$('#pagination').twbsPagination({
-    startPage: 1,
-    totalPages: 10,
-    visiblePages: 4,
-    initiateStartPageClick: false,
-    onPageClick: function(event, page) {
-       
+<div class="toast-container position-fixed bottom-0 end-0 pb-5 pe-3">
+
+<c:if test="${not empty succMsg }"> 
+	<div id="liveToast" class="toast fade show bg-white" role="alert" aria-live="assertive" aria-atomic="true">
+	    <div class="toast-header">
+	      <strong class="me-auto">Thông báo</strong>
+	      <button type="button" class="btn-close me-0" data-bs-dismiss="toast" aria-label="Close"></button>
+	    </div>
+	    <div class="toast-body">
+		     <div class="d-flex align-item-center">
+			      <span class="text-success d-block me-auto">${succMsg }</span>
+			      <i class="fa-solid fa-check text-success fs-5"></i>
+		     </div>
+	    </div> 
+  </div>
+<c:remove var="succMsg" scope="session"/>
+</c:if> 
+  </div>
+<script type="text/javascript">
+
+if (window.performance && window.performance.navigation.type === 2) {
+	var toastElement = document.getElementById('liveToast');
+    if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.hide();
     }
-});
+}
 </script>
-	
+
 </body>
 </html>

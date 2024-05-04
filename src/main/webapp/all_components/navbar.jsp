@@ -5,20 +5,60 @@
 
 <div style="z-index: 10" class="position-sticky top-0">
 
-<div class="container-fluid bg-body-tertiary p-2">
+<div class="container-fluid bg-body-tertiary p-3">
 	<div class="container">
-		<div class="row">
+		<div class="row align-items-center">
 			<div class="col-md-3">
-				<h3 class="text-success"><i class="fa-solid fa-shop"></i> ShoesStore</h3>
+				<h3 class="text-success mb-0"><i class="fa-solid fa-shop"></i> ShoesStore</h3>
 			</div>
-			<div class="offset-md-6 col-md-3 text-end">
-				<a href="auth?action=login" class="btn btn-success">
-					<i class="fa-solid fa-right-to-bracket"></i>
-					Đăng nhập</a>
-				<a href="auth?action=register" class="btn btn-primary">
-					<i class="fa-solid fa-user-plus"></i>
-					Đăng ký</a>
+			
+			<div class="col-md-5">
+				   <form method="GET" action="tim-kiem" class="d-flex" role="search">
+			        <input required="required" 
+			        name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			    	    <button class="btn btn-outline-success d-flex gap-1" type="submit"><span>Tìm</span><span>kiếm</span></button>
+			      </form>
 			</div>
+			
+			<c:choose>
+				<c:when test = "${not empty userObj }">
+	           <div class="col-md-4 d-flex align-items-center justify-content-end gap-5">
+				<div class="mt-2">
+					<div class="position-relative cart">
+						<i class="fa-solid fa-cart-shopping fs-5 text-success"></i>
+						<span class="cart-quantity position-absolute d-block bg-danger text-white">0</span>
+					</div>
+				</div>
+				
+				<div class="d-flex align-items-center gap-2">
+					<button class="btn btn-info d-flex align-items-center gap-2">
+						<div>
+							<img style="width: 22px; border-radius: 50%" 
+								src="${pageContext.request.contextPath }/images/photos/${userObj.photo}" alt=""/>
+						</div>
+						<span class="text-white">${userObj.fullName }</span>
+					</button>
+					<a href="dang-xuat" class="btn btn-primary">
+						<i class="fa-solid fa-right-from-bracket"></i>
+						<span>Logout</span>
+					</a>
+				</div>
+				</div>
+	         	</c:when>
+	         	
+	         	    <c:otherwise>
+	         	    
+	         	    <div class="col-md-4 text-end">
+						<a href="dang-nhap" class="btn btn-success">
+							<i class="fa-solid fa-right-to-bracket"></i>
+							Đăng nhập</a>
+						<a href="dang-ky" class="btn btn-primary">
+							<i class="fa-solid fa-user-plus"></i>
+							Đăng ký</a>
+					</div> 
+        			 </c:otherwise>
+				
+			</c:choose>
 		</div>
 	</div>
 </div>

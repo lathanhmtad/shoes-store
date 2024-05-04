@@ -30,6 +30,16 @@ CREATE TABLE product (
 );
 GO
 
+CREATE TABLE [dbo].[user] (
+    id INT PRIMARY KEY IDENTITY(1,1), 
+    fullName NVARCHAR(100),
+    email NVARCHAR(255),
+    phone NVARCHAR(20),
+    password NVARCHAR(255),
+    photo NVARCHAR(255),
+    address NVARCHAR(255)
+);
+
 INSERT INTO category (id, name)
 VALUES
     (1, N'Giày thể thao'),
@@ -38,6 +48,21 @@ VALUES
     (4, N'Giày dép nữ'),
     (5, N'Giày cho trẻ em');
 go
+
+-- Chèn dữ liệu vào bảng user
+INSERT INTO [dbo].[user] ([fullName], [email], phone, [password], [photo], [address])
+VALUES
+(N'Nguyễn Văn A', 'nguyenvana@example.com', '0123456789', 'password123', 'avatar1.jpg', N'123 Đường ABC, TP HCM'),
+(N'Phạm Thị B', 'phamthib@example.com', '0123456790', 'password123', 'avatar2.jpg', N'456 Đường XYZ, Hà Nội'),
+(N'Trần Văn C', 'tranvanc@example.com', '0123456791', 'password123', 'avatar3.jpg', N'789 Đường PQR, Đà Nẵng'),
+(N'Hoàng Thị D', 'hoangthid@example.com', '0123456792', 'password123', 'avatar4.jpg', N'321 Đường STU, Cần Thơ'),
+(N'Vũ Văn E', 'vuvane@example.com', '0123456793', 'password123', 'avatar5.jpg', N'654 Đường GHJ, Nha Trang'),
+(N'Lê Thị F', 'lethif@example.com', '0123456794', 'password123', 'avatar6.jpg', N'987 Đường KLM, Huế'),
+(N'Đỗ Văn G', 'dovang@example.com', '0123456795', 'password123', 'avatar7.jpg', N'135 Đường OPQ, Vũng Tàu'),
+(N'Bùi Thị H', 'buithih@example.com', '0123456796', 'password123', 'avatar8.jpg', N'246 Đường RST, Hải Phòng'),
+(N'Ngô Văn I', 'ngovani@example.com', '0123456797', 'password123', 'avatar9.jpg', N'1357 Đường UVW, Bắc Ninh'),
+(N'Thái Thị J', 'thaithij@example.com', '0123456798', 'password123', 'avatar10.jpg', N'2468 Đường XYZ, Quảng Ninh');
+
 
 INSERT INTO product (name, brand, image, price, description, stock, category_id, is_new)
 VALUES
@@ -57,4 +82,3 @@ VALUES
     (N'Giày sandal nam', N'Đông Hồ', N'sandal_nam.jpg', 1200000, N'Đôi giày sandal nam đẹp và thoải mái từ Đông Hồ, phù hợp cho mọi dịp hè và du lịch.', 1, 3, 1),
     (N'Giày thể thao trẻ em', N'Puma', N'the_thao_tre_em2.jpg', 900000, N'Giày thể thao trẻ em với thiết kế nhẹ nhàng và êm ái từ Puma, giúp trẻ tự tin khi vận động.', 1, 5, 0);
 go
-

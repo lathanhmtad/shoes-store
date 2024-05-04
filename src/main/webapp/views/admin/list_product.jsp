@@ -148,9 +148,12 @@
 </div>
 	
 	<script type="text/javascript">
-	    // Checking if navigation type is 'back_forward'
-	    if (performance.navigation.type == 2) {
-	        location.reload(true);
+	    if (window.performance && window.performance.navigation.type === 2) {
+	    	var toastElement = document.getElementById('liveToast');
+	        if (toastElement) {
+	            var toast = new bootstrap.Toast(toastElement);
+	            toast.hide();
+	        }
 	    }
 
 	    // Setup variables for pagination

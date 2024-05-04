@@ -257,4 +257,27 @@ public class ProductDAO {
 		}
 		return null;
 	}
+
+	public List<Product> search(String keyword) {
+		try {
+		    List<Product> products = new ArrayList<Product>();
+		    // Prepare the SQL statement without directly embedding the wildcards into the query
+		    String sql = "SELECT p.*, c.name as category_name "
+		               + "FROM product p "
+		               + "JOIN category c ON c.id = p.category_id "
+		               + "WHERE p.name LIKE ?";
+		    PreparedStatement ps = DBConnect.getConn().prepareStatement(sql);
+		    
+		    ps.setString(1, "%" + keyword + "%");
+		    ResultSet rs = ps.executeQuery();
+		    
+		    while(rs.next()) {
+		        products.add(new Product(rs));
+		    }
+		    return products;
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return null;
+	}
 }

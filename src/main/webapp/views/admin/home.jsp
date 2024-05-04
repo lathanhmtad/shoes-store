@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-		<h3 class="text-center pt-5">Xin chào quản trị viên: Nguyễn Đăng Duy</h3>
+		<h3 class="text-center pt-5">Xin chào quản trị viên: <strong>${userObj.fullName }</strong></h3>
 		<div class="row pt-5">
 			<div class="col-md-3">
 				<a href="#">
